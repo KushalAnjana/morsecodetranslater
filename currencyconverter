@@ -1,0 +1,322 @@
+from tkinter import Tk, StringVar, ttk
+from tkinter import *
+from tkinter import messagebox as tmsg
+import webbrowser
+import sqlite3
+def about():
+    url = "https://en.wikipedia.org/wiki/Currency_converter"
+    webbrowser.open(url)
+def exit():
+    root.destroy()
+#################Converter Logic####################    
+def conCurrency():
+        def qexit():
+            win.destroy()
+        def Reset():
+                value0.set("")
+                convert.set("0.0")
+                currency.set("0.0")
+        def curr():
+            #### USA##############################
+            if value0.get()=="USA":
+                if value1.get()=='Canada':
+                    convert1=float(convert.get() *1.32)
+                    convert2="Canidian Dollar",str('%.2f' %(convert1))
+                elif value1.get()=='Brazil':
+                    convert1=float(convert.get() *4.02)
+                    convert2="Brazilian Real",str('%.2f' %(convert1))
+                elif value1.get()=='Europe':
+                    convert1=float(convert.get() *0.90)
+                    convert2="Euro",str('%.2f' %(convert1))
+                elif value1.get()=='India':
+                    convert1=float(convert.get() *71.00)
+                    convert2="Indian Rupee",str('%.2f' %(convert1))
+                elif value1.get()=='Kenya':
+                    convert1=float(convert.get() *103.19)
+                    convert2="Kenyan Shilling",str('%.2f' %(convert1))
+                elif value1.get()=='Nigeria':
+                    convert1=float(convert.get() *361.50)
+                    convert2="Nigerian Niara",str('%.2f' %(convert1))
+                elif value1.get()=='Philippine':
+                    convert1=float(convert.get() *50.94)
+                    convert2="Philippine Peso",str('%.2f' %(convert1))
+                else:
+                    convert2="USA Dallas "+str(convert.get())
+                currency.set(convert2)
+        #### CANADA   ##############################
+            elif value0.get()=="Canada":
+                if value1.get()=='Brazil':
+                    convert1=float(convert.get() *3.03)
+                    convert2="Brazilian Real",str('%.2f' %(convert1))
+                elif value1.get()=='Europe':
+                    convert1=float(convert.get() *0.68)
+                    convert2="Euro",str('%.2f' %(convert1))
+                elif value1.get()=='India':
+                    convert1=float(convert.get() *53.79)
+                    convert2="Indian Rupee",str('%.2f' %(convert1))
+                elif value1.get()=='Kenya':
+                    convert1=float(convert.get() *78.40)
+                    convert2="Kenyan Shilling",str('%.2f' %(convert1))
+                elif value1.get()=='Nigeria':
+                    convert1=float(convert.get() *275.39)
+                    convert2="Nigerian Niara",str('%.2f' %(convert1))
+                elif value1.get()=='Philippine':
+                    convert1=float(convert.get() *38.56)
+                    convert2="Philippine Peso",str('%.2f' %(convert1))
+                else:
+                    convert2="Canidian Dollar "+str(convert.get())
+                currency.set(convert2)
+        #### INDIA   ##############################
+            elif value0.get()=="India":
+                if value1.get()=='Canada':
+                    convert1=float(convert.get() *0.019)
+                    convert2="Canidian Dollar",str('%.2f' %(convert1))
+                elif value1.get()=='Brazil':
+                    convert1=float(convert.get() *0.057)
+                    convert2="Brazilian Real",str('%.2f' %(convert1))
+                elif value1.get()=='Europe':
+                    convert1=float(convert.get() *0.013)
+                    convert2="Euro",str('%.2f' %(convert1))
+                #elif value1.get()=='India':
+                    #convert1=float(convert.get() *4.02)
+                    #convert2="Indian Rupee",str('%.2f' %(convert1))
+                elif value1.get()=='Kenya':
+                    convert1=float(convert.get() *1.45)
+                    convert2="Kenyan Shilling",str('%.2f' %(convert1))
+                elif value1.get()=='Nigeria':
+                    convert1=float(convert.get() *5.09)
+                    convert2="Nigerian Niara",str('%.2f' %(convert1))
+                elif value1.get()=='Philippine':
+                    convert1=float(convert.get() *0.72)
+                    convert2="Philippine Peso",str('%.2f' %(convert1))
+                elif value1.get()=='USA':
+                    convert1=float(convert.get() *0.014)
+                    convert2="US Dollars",str('%.2f' %(convert1))
+                else:
+                    convert2="Indian Rupee "+str(convert.get())
+                currency.set(convert2)
+    #### BRAZIL   ##############################
+            elif value0.get()=="Brazil":
+                if value1.get()=='Canada':
+                    convert1=float(convert.get() *0.33)
+                    convert2="Canidian Dollar",str('%.2f' %(convert1))
+                #elif value1.get()=='Brazil':
+                    #convert1=float(convert.get() *4.02)
+                    #convert2="USA Dallas",str('%.2f' %(convert1))
+                elif value1.get()=='Europe':
+                    convert1=float(convert.get() *0.22)
+                    convert2="Euro",str('%.2f' %(convert1))
+                elif value1.get()=='India':
+                    convert1=float(convert.get() *17.66)
+                    convert2="Indian Rupee",str('%.2f' %(convert1))
+                elif value1.get()=='Kenya':
+                    convert1=float(convert.get() *25.68)
+                    convert2="Kenyan Shilling",str('%.2f' %(convert1))
+                elif value1.get()=='Nigeria':
+                    convert1=float(convert.get() *89.95)
+                    convert2="Nigerian Niara",str('%.2f' %(convert1))
+                elif value1.get()=='Philippine':
+                    convert1=float(convert.get() *12.67)
+                    convert2="Philippine Peso",str('%.2f' %(convert1))
+                else:
+                    convert2="Brazilian Real "+str(convert.get())
+                currency.set(convert2)
+     #### EUROPE  ##############################
+            elif value0.get()=="Europe":
+                if value1.get()=='Canada':
+                    convert1=float(convert.get() *111)
+                    convert2="Canidian Dollar",str('%.2f' %(convert1))
+                elif value1.get()=='Brazil':
+                    convert1=float(convert.get() *4.02)
+                    convert2="Brazilian Real",str('%.2f' %(convert1))
+                #elif value1.get()=='Europe':
+                    #convert1=float(convert.get() *4.02)
+                    #convert2="Euro",str('%.2f' %(convert1))
+                elif value1.get()=='India':
+                    convert1=float(convert.get() *4.02)
+                    convert2="Indian Rupee",str('%.2f' %(convert1))
+                elif value1.get()=='Kenya':
+                    convert1=float(convert.get() *4.02)
+                    convert2="Kenyan Shilling",str('%.2f' %(convert1))
+                elif value1.get()=='Nigeria':
+                    convert1=float(convert.get() *4.02)
+                    convert2="Nigerian Niara",str('%.2f' %(convert1))
+                elif value1.get()=='Philippine':
+                    convert1=float(convert.get() *4.02)
+                    convert2="Philippine Peso",str('%.2f' %(convert1))
+                else:
+                    convert2="EURO "+str(convert.get())
+                currency.set(convert2)
+        win=Toplevel()
+        win.configure(bg="khaki1")
+        LeftMainFrame = Frame(win,width=660,height=400,bd=8,relief="raise")
+        LeftMainFrame.pack(side=LEFT)
+        RightMainFrame = Frame(win,width=660,height=400,bd=8,relief="raise")
+        RightMainFrame.pack(side=RIGHT)
+
+        value0 = StringVar()
+        value1=StringVar()
+        convert = DoubleVar()
+        currency = DoubleVar()
+
+        EntCurrency= Entry(LeftMainFrame,font=('arial',20,'bold'),bg="light blue",textvariable=convert,bd=2,width=28,justify='center')
+        EntCurrency.grid(row=0,column=1)
+#lblBritishPound= Label(LeftMainFrame,font=('arial',20,'bold'), text='British Pound Equals',padx=2,pady=2,bd=2,fg="black",width=18)
+
+#lblBritishPound.grid(row=0,column=2,sticky=W)
+        country=['Select Country','USA','Canada','Europe','India','Brazil']
+        
+        box=ttk.Combobox(LeftMainFrame,textvariable=value0,state='readonly',font=('arial',20,'bold'),width=20,values=country)
+
+        box.current(0)
+        box.grid(row=0,column=2)
+        c11=box.get()
+        
+        box1=ttk.Combobox(LeftMainFrame,textvariable=value1,state='readonly',font=('arial',20,'bold'),width=20,values=country)
+        box1.current(0)
+        box1.grid(row=4,column=2)
+        c21=box1.get()
+        lblCurrency= Label(LeftMainFrame,font=('arial',20,'bold'), textvariable=currency,bd=2,padx=2,pady=2,
+                        bg="light blue",width=25,relief='sunken')
+        lblCurrency.grid(row=4,column=1)
+#-------------------------------------------Buttons-----------------------------------------------------------------
+
+        btnConvert=Button(RightMainFrame,text='Convert',font=('arial',20,'bold'),padx=2,pady=2,bd=2,bg="chocolate1",fg="black",width=12,height=1,command=curr).grid(row=1,column=0)
+        btnReset=Button(RightMainFrame,text='Reset',font=('arial',20,'bold'),padx=2,pady=2,bd=2,bg="chocolate1",fg="black",width=12,height=1,command=Reset).grid(row=2,column=0)
+        btnExit=Button(RightMainFrame,text='Exit',font=('arial',20,'bold'),padx=2,pady=2,bd=2,bg="chocolate1",fg="black",width=12,height=1,command=qexit).grid(row=3,column=0)
+
+
+        c1=Label(RightMainFrame,text='Country1',bg="chocolate1",)
+        c1.grid(row=4,column=0)
+        c1.configure(text=c11)
+        c2=Label(RightMainFrame,text='Country1',bg="chocolate1",)
+        c2.grid(row=5,column=0) 
+        c2.configure(text=c21)
+               
+        
+        
+
+########Suggestion Box#############################
+def suggestion():
+    a = Toplevel()
+    a.geometry('500x500')
+    a.configure(background="khaki1")
+    a.title("Suggestion Box ")
+
+
+    Fullname=StringVar()
+    Email=StringVar()
+    var=IntVar()
+    c=StringVar()
+    var1=StringVar()
+    s=StringVar()
+
+    def database():
+        s=tmsg.showinfo("SUCCESSFUL","THANK YOU FOR YOUR SUGGESTION")
+        a.destroy()
+        name1=Fullname.get()
+        email=Email.get()
+        gender=var.get()
+        country=c.get()
+        suggestion=s.get()
+        conn=sqlite3.connect('Form.db')
+        with conn:
+             cursor=conn.cursor()
+        cursor.execute('CREATE TABLE IF NOT EXISTS Stud(Fullname TEXT,Email TEXT,Gender TEXT,country TEXT,Suggestion)')
+        cursor.execute('INSERT INTO Stud (Fullname,Email,Gender,country,Suggestion)VALUES(?,?,?,?,?)',(name1,email,gender,country,suggestion))
+        conn.commit()
+    label_0 = Label(a, text="Suggestion Box",width=20,font=("bold", 20),bg="khaki1")
+    label_0.place(x=90,y=53)
+
+
+    label_1 = Label(a, text="FullName",width=20,font=("bold", 10),bg="khaki1")
+    label_1.place(x=80,y=130)
+
+    entry_1 = Entry(a,textvar=Fullname)
+    entry_1.place(x=240,y=130)
+
+    label_2 = Label(a, text="Email",width=20,font=("bold", 10),bg="khaki1")
+    label_2.place(x=68,y=180)
+
+    entry_2 = Entry(a,textvar=Email)
+    entry_2.place(x=240,y=180)
+
+    label_3 = Label(a, text="Gender",width=20,font=("bold", 10),bg="khaki1")
+    label_3.place(x=70,y=230)
+
+    Radiobutton(a, text="Male",padx = 5, variable=var, value=1,bg="khaki1").place(x=235,y=230)
+    Radiobutton(a, text="Female",padx = 20, variable=var, value=2,bg="khaki1").place(x=290,y=230)
+
+    label_4 = Label(a, text="country",width=20,font=("bold", 10),bg="khaki1")
+    label_4.place(x=70,y=280)
+
+    list1 = ['India','Canada','UK','Nepal','Iceland','South Africa'];
+    c=StringVar()
+    droplist=OptionMenu(a,c, *list1)
+    droplist.config(width=15)
+    c.set('select your country') 
+    droplist.place(x=240,y=280)
+    
+    label_4= Label(a, text="Suggestion",width=20,font=("bold", 10),bg="khaki1")
+    label_4.place(x=85,y=330)
+
+    s=StringVar()
+    entry_4 = Entry(a,textvar=s)
+    entry_4.place(x=235,y=330,width=150,height=50)
+
+
+    Button(a, text='Submit',width=20,bg='brown',fg='white',command=database).place(x=180,y=460)
+
+
+#######################Main window GUI#####################################
+    
+root = Tk()
+root.title("Currency Converter")
+root.configure(background='khaki1')
+root.geometry("2000x1500")
+l=Label(text="                    CURRENCY CONVERTER                    ",bg="chocolate1",fg="white",font="comicsansms 36 bold",relief='sunken')
+l.place(relx=0.5,rely=0.12,anchor=CENTER)
+btn1 = Button(root,text="CONVERT",background="chocolate1",width=70,height=5,fg="white",command=conCurrency)
+btn1.place(relx=0.06,rely=0.25,anchor=NW)
+btn1.configure(font=("bold"))
+btn2 = Button(root,text="ABOUT US",background="chocolate1",width=70,height=5,fg="white",command=about)
+btn2.place(relx=0.06,rely=0.38,anchor=NW)
+btn2.configure(font=("bold"))
+btn3 = Button(root,text="SUGGESTION",background="chocolate1",width=70,height=5,fg="white",command=suggestion)
+btn3.place(relx=0.06,rely=0.51,anchor=NW)
+btn3.configure(font=("bold"))
+btn4 = Button(root,text="EXIT",background="chocolate1",width=70,height=4,fg="white",command=exit)
+btn4.place(relx=0.06,rely=0.64,anchor=NW)
+btn4.configure(font=("bold"))
+
+p=PhotoImage(file = "converter.png")
+b = p.subsample(2,2)
+btn6 = Button(root,image = b,command=conCurrency)
+btn6.place(relx=0.47,rely=0.25,anchor=NW)
+btn6.configure(font=("bold"))
+btn6.configure(background="navajo white",width=140,height=102)
+                      
+q=PhotoImage(file = "about.png")
+r=q.subsample(4,3)
+btn7 = Button(root,image=r,command=about)
+btn7.configure(background="navajo white",width=140,height=102)
+btn7.place(relx=0.47,rely=0.38,anchor=NW)
+btn7.configure(font=("bold"))
+
+s=PhotoImage(file = "sug.png")
+a=s.subsample(2,2)
+btn8 = Button(root,image=a,command=suggestion)
+btn8.configure(background="navajo white",width=140,height=102)
+btn8.place(relx=0.47,rely=0.51,anchor=NW)
+btn8.configure(font=("bold"))
+t=PhotoImage(file = "exit.png")
+f=t.subsample(2,2)
+btn9 = Button(root,image=f,command=exit)
+btn9.configure(background="navajo white",width=140,height=102)
+btn9.place(relx=0.47,rely=0.64,anchor=NW)
+btn9.configure(font=("bold"))
+
+img=PhotoImage(file="10.png")
+w=Label(root,image=img)
+w.place(relx=0.69,rely=0.33,anchor=NW)
+root.mainloop()
